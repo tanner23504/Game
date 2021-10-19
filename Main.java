@@ -1,17 +1,23 @@
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
+import javax.swing.*;
+import java.awt.*;
 
-class Main {
-  public static void main(String[] args) {
-    JFrame frame = new JFrame("Hello world");
-    frame.setSize(540, 300);
-    frame.setLocation(100, 100);
-    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-    JLabel label = new JLabel("Hello world", SwingConstants.CENTER);
-    frame.add(label);
 
-    frame.show();
+public class Main{
+  public static void main(String[] args){
+    GUI myGui = new GUI();
+    myGui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+    myGui.setSize(500, 500);
+    myGui.setVisible(true);
+
+    
   }
+
 }
+ 
+  
+
+
+
+   
