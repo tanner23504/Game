@@ -12,11 +12,8 @@ public class new_window extends JFrame implements ActionListener{
     panel.setLayout(null);
     add(panel);
     
-    JLabel label = new JLabel("Instructions. \n"
-    + "Welcome to Jeopardy: Survival Games! \n"
-    + "In this game, you will be asked different \n"
-    + "questions from different categories.");
-    label.setBounds(100,60, 500,100);
+    JLabel label = new JLabel("<html>Instructions.<br> Welcome to Jeopardy: Survival Games! <br> In this game, you will be asked different <br> questions from different categories.");
+    label.setBounds(200,60, 500,100);
     panel.add(label);
 
     
@@ -34,7 +31,7 @@ public class new_window extends JFrame implements ActionListener{
     main_game_screen myGui = new main_game_screen();
     myGui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-    myGui.setSize(500, 500);
+    myGui.setSize(775, 500);
     myGui.setVisible(true);
     this.dispose();
   }

@@ -30,7 +30,7 @@ public class Answer1 extends JFrame implements ActionListener{
     main_game_screen myGui = new main_game_screen();
     myGui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-    myGui.setSize(500, 500);
+    myGui.setSize(775, 500);
     myGui.setVisible(true);
     this.dispose();
 
