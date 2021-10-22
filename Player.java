@@ -1,21 +1,42 @@
+import java.util.*;
 public class Player{
-   //ArrayList<String> correctAnswers = new ArrayList<String>();
+   
+   public static ArrayList<String> correctAnswers = new ArrayList<String>();
+
    public static int score;
 
    public Player(){
      score =0;
    }
 
-  public int correct(int value){
+  public void correct(int value){
      score += value;
-     return score;
+     //return score;
    }
+
+  public void resetScore(){
+    score=0;
+  }
 
    public int getScore(){
      return score;
    }
-   //public void correctAnswers(String answer) {
-    //correctAnswers.add(answer);
-   //}
+   public void correctAnswers(String answer) {
+    correctAnswers.add(answer);
+   }
+   public int getcorrectAnswerslength(){
+     return correctAnswers.size();
+   }
+   public String getValues(){
+     String stringMessage = ""; 
+     for (String value: correctAnswers ){
+       stringMessage+=value+",";
+     }
 
+     return stringMessage;
+   }
+   public void clear_array(){
+     correctAnswers.clear();
+   }
+   
 }
