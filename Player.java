@@ -1,5 +1,5 @@
 public class Player{
-  //put array here
+   //ArrayList<String> correctAnswers = new ArrayList<String>();
    public static int score;
 
    public Player(){
@@ -7,12 +7,15 @@ public class Player{
    }
 
   public int correct(int value){
-     return score += value;
+     score += value;
+     return score;
    }
 
    public int getScore(){
      return score;
    }
-   //put method for array here
+   //public void correctAnswers(String answer) {
+    //correctAnswers.add(answer);
+   //}
 
 }
