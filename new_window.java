@@ -18,13 +18,13 @@ public class new_window extends JFrame implements ActionListener{
     label.setBounds(200,10, 250,30);
     panel.add(label);
     
-    JLabel label1 = new JLabel("<html> Welcome to Jeopardy: Survival Games! <br><br> Within the game, you will be asked several questions from 4 different categories.<br><br> The 4 categories are Sports, Video Games, Computer Science and Random! <br><br> Getting the question wrong will cause you to lose the game... so ensure you are prepared to beat the survival games.<br><br> Every question you get correct, you will be awarded with 100 points!<br><br> Check the 'output.txt' file after completing the game to view your score and previous user score history before hand. <html>");
-    label1.setBounds(200,0, 400,400);
+    JLabel label1 = new JLabel("<html> Welcome to Jeopardy: Survival Games! <br><br> Within the game, you will be asked several questions from 4 different categories.<br><br> The 4 categories are Sports, Video Games, Computer Science and Random! <br><br> Getting the question wrong will cause you to lose the game... so ensure you are prepared to beat the survival games.<br><br> Every question you get correct, you will be awarded with 100 points!<br><br> Check the 'output.txt' file after completing the game to view your score and previous user score history before hand.<br><br> While clicking 'Endgame' to end the game, you will be sent to the end screen  and will gain an extra 100 points! <html>");
+    label1.setBounds(200,20, 400,400);
     panel.add(label1);
 
     
     JButton button = new JButton("Begin Game");
-    button.setBounds(200,350, 125,25);
+    button.setBounds(200,400, 125,25);
     button.addActionListener(this);
     panel.add(button);
 

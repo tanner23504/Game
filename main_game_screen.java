@@ -6,10 +6,10 @@ import java.awt.event.ActionListener;
 import java.awt.event.*;
 import java.io.*;
 import java.awt.font.*;
-
+import java.awt.Font;
 public class main_game_screen extends JFrame implements ActionListener {
   public int score = 0;
-
+  
   CardLayout layout = new CardLayout();
   Container base = getContentPane();
   JPanel panel;
@@ -282,7 +282,7 @@ public class main_game_screen extends JFrame implements ActionListener {
     add(panel);
 
     JLabel label = new JLabel("What is 1+1?");
-    label.setBounds(150, 80, 500, 25);
+    label.setBounds(230, 80, 500, 25);
     label.setFont(new Font("", Font.BOLD, 18)); 
     panel.add(label);
 
@@ -374,16 +374,16 @@ public class main_game_screen extends JFrame implements ActionListener {
     add(panel);
 
     JLabel label = new JLabel("What is the fastest land animal in the world?");
-    label.setBounds(150, 80, 500, 25);
+    label.setBounds(100, 80, 500, 25);
     label.setFont(new Font("", Font.BOLD, 18)); 
     panel.add(label);
 
     userText8 = new JTextField(20);
-    userText8.setBounds(230, 200, 150, 25);
+    userText8.setBounds(240, 200, 150, 25);
     panel.add(userText8);
 
     JButton button_8 = new JButton("Submit");
-    button_8.setBounds(230, 250, 150, 50);
+    button_8.setBounds(240, 250, 150, 50);
     button_8.setActionCommand("Submit_8");
     button_8.addActionListener(this);
     panel.add(button_8);
@@ -419,8 +419,8 @@ public class main_game_screen extends JFrame implements ActionListener {
     panel.setLayout(null);
     add(panel);
 
-    JLabel label = new JLabel("What competitive video game had a tournement hosted in Iceland and Berlin?");
-    label.setBounds(150, 80, 500, 25);
+    JLabel label = new JLabel("<html>What competitive video game had a <br> tournament hosted in Iceland and Berlin?<html>");
+    label.setBounds(110, 80, 500, 50);
     label.setFont(new Font("", Font.BOLD, 18)); 
     panel.add(label);
 
@@ -443,7 +443,7 @@ public class main_game_screen extends JFrame implements ActionListener {
     add(panel);
 
     JLabel label = new JLabel("What are the different types of loops in java?");
-    label.setBounds(150, 80, 500, 25);
+    label.setBounds(110, 80, 500, 25);
     label.setFont(new Font("", Font.BOLD, 18)); 
     panel.add(label);
 
@@ -465,8 +465,8 @@ public class main_game_screen extends JFrame implements ActionListener {
     panel.setLayout(null);
     add(panel);
 
-    JLabel label = new JLabel("What computer course in University does not require you to take any sciences in highschool?");
-    label.setBounds(150, 80, 500, 25);
+    JLabel label = new JLabel("<html>What computer course in University does not <br> require you to take any sciences in highschool?<html>");
+    label.setBounds(110, 80, 500, 50);
     label.setFont(new Font("", Font.BOLD, 18)); 
     panel.add(label);
 
@@ -488,33 +488,33 @@ public class main_game_screen extends JFrame implements ActionListener {
   }
 
   public JPanel endGame() {
+    
     panel = new JPanel();
     panel.setLayout(null);
     add(panel);
     
     JLabel label = new JLabel("Game Over!");
-    label.setBounds(275, 80, 225, 25);
-    label.setFont(new Font("", Font.BOLD, 18)); 
+    label.setBounds(275, 35, 225, 25);
+    label.setFont(new Font("Serif", Font.BOLD, 18)); 
     panel.add(label);
 
     label_1 = new JLabel(player.getValues());
-    label_1.setBounds(150, 150, 600, 25);
+    label_1.setBounds(390, 200, 500, 25);
     panel.add(label_1);
     player.getcorrectAnswerslength();
     ////////////////////////////////////////////////////////
     label_2 = new JLabel(String.valueOf(player.score));
     System.out.println(player.score);
-    label_2.setBounds(150, 250, 225, 25);
+    label_2.setBounds(340,272, 225, 25);
+    label_2.setFont(new Font("Serif", Font.BOLD, 18)); ;
     panel.add(label_2);
     
-    //label_2 = new JLabel(player.getValues());
-    //label_2.setBounds(100, 250, 400, 25);
-    //panel.add(label_2);
+    
     
     System.out.println(player.getValues());
     
     JButton endGame = new JButton("Main Screen");
-    endGame.setBounds(265, 350, 150, 30);
+    endGame.setBounds(265, 380, 150, 40);
     endGame.setActionCommand("endGame_1");
     endGame.addActionListener(this);
     panel.add(endGame);
@@ -531,7 +531,7 @@ public class main_game_screen extends JFrame implements ActionListener {
     add(panel);
     player.correct(100);
     
-    
+   
     label_score = new JLabel(String.valueOf(player.getScore()));
     panel.setBackground(Color.green);
     label_score.setBounds(490, 150, 150, 25);
@@ -561,13 +561,23 @@ public class main_game_screen extends JFrame implements ActionListener {
     
      
 
-
+    
     JLabel label = new JLabel("You lost the game");
-    label.setBounds(150, 80, 225, 25);
+    label.setBounds(225, 200, 225, 25);
+    label.setFont(new Font("", Font.BOLD, 18)); 
     panel.add(label);
 
-    JButton button_1 = new JButton("Continue");
-    button_1.setBounds(180, 250, 150, 25);
+    JLabel label2 = new JLabel("Game Over!");
+    label2.setBounds(220, 150, 225, 25);
+    label2.setFont(new Font("", Font.BOLD, 30)); 
+    panel.add(label2);
+
+    
+    ////////////////////////////////////////////////////////
+   
+
+    JButton button_1 = new JButton("Main Screen");
+    button_1.setBounds(245, 250, 150, 30);
     button_1.setActionCommand("game reset");
     button_1.addActionListener(this);
     panel.add(button_1);
@@ -805,13 +815,33 @@ public class main_game_screen extends JFrame implements ActionListener {
 
     case "Submit_11":
 
-      if (userText11.getText().toLowerCase().equals("for loop, while loop, do while loop")) {
+      if (userText11.getText().toLowerCase().equals("for loop, while loop, do-while loop")) {
         layout.show(base, "correct");
         JPanel correct = correct();
         base.add(correct, "correct");
         player.correctAnswers("11" + " \r\n");
+      }
+      else if (userText11.getText().toLowerCase().equals("while loop, for loop, do-while loop")) {
+        layout.show(base, "correct");
+        JPanel correct = correct();
+        base.add(correct, "correct");
+        player.correctAnswers("11" + " \r\n");
+      }
 
-      } else {
+      else if (userText11.getText().toLowerCase().equals("do-while loop, for loop, while loop")) {
+        layout.show(base, "correct");
+        JPanel correct = correct();
+        base.add(correct, "correct");
+        player.correctAnswers("11" + " \r\n");
+      }
+      else if (userText11.getText().toLowerCase().equals("do-while loop, while loop, for loop")) {
+        layout.show(base, "correct");
+        JPanel correct = correct();
+        base.add(correct, "correct");
+        player.correctAnswers("11" + " \r\n");
+      }
+
+       else {
         layout.show(base, "incorrect");
 
       }
@@ -853,15 +883,22 @@ public class main_game_screen extends JFrame implements ActionListener {
       break;
 
     case "endGame":
-      //JPanel endGame = endGame();
-      JLabel label = new JLabel("Questions that were answered correctly: ");
-      label.setBounds(80, 80, 500, 25);
-      label.setFont(new Font("", Font.BOLD, 18)); 
-      panel.add(label);
-      label_score.setText(String.valueOf(player.getScore()));
-      label_1.setText(player.getValues());
-
+      JPanel endGame = endGame();
+      base.add(endGame,"endGame");
       
+      
+      JLabel label = new JLabel("Questions that were answered correctly: ");
+      label.setBounds(60, 200, 500, 25);
+      label.setFont(new Font("", Font.BOLD, 14)); 
+      panel.add(label);
+      
+      
+      JLabel labelScore = new JLabel("Score: ");
+      labelScore.setBounds(280, 270, 150, 30);
+      labelScore.setFont(new Font("", Font.BOLD, 14)); 
+      panel.add(labelScore);
+      
+
       layout.show(base, "endGame");
       
       
@@ -876,6 +913,8 @@ public class main_game_screen extends JFrame implements ActionListener {
 
       myGui.setSize(775, 500);
       myGui.setVisible(true);
+
+
       break;
 
     case "continue game":

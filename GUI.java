@@ -14,12 +14,12 @@ public class GUI extends JFrame implements ActionListener{
     add(panel);
     
     JLabel label = new JLabel("Jeopardy: Survival Games!");
-    label.setBounds(100,80, 500,100);
+    label.setBounds(150,80, 500,100);
     label.setFont(new Font("Serif", Font.BOLD,30)); 
     panel.add(label);
 
     JButton button = new JButton("Start");
-    button.setBounds(230,250, 150,50);
+    button.setBounds(290,250, 150,50);
     button.addActionListener(this);
     panel.add(button);
     

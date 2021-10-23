@@ -7,7 +7,7 @@ public class Player_Stats{
   try {
     
     FileWriter fw = new FileWriter("output.txt",true);
-    player.correct(-100);
+    
     fw.write("***********************************" +  " \r\n");
     fw.write("New Game Trial" +  " \r\n");
     fw.write(String.valueOf("Player Score: " + player.getScore())+ " \r\n");
