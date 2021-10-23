@@ -45,5 +45,9 @@ public class Player{
    public void resetScore(){
     score=0;
   }
+
+  public void resetArray(){
+    correctAnswers.removeAll(correctAnswers);
+  }
    
 }

@@ -906,7 +906,7 @@ public class main_game_screen extends JFrame implements ActionListener {
 
     case "game reset":
       dispose();
-      
+      player.resetArray();
       player.resetScore();
       GUI myGui = new GUI();
       myGui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
