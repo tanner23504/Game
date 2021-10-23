@@ -3,6 +3,8 @@ import javax.swing.JFrame;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.*;
+import java.awt.Font;
+import java.awt.font.*;
 
 public class GUI extends JFrame implements ActionListener{
   JPanel panel;
@@ -12,11 +14,12 @@ public class GUI extends JFrame implements ActionListener{
     add(panel);
     
     JLabel label = new JLabel("Jeopardy: Survival Games!");
-    label.setBounds(150,80, 200,25);
+    label.setBounds(100,80, 500,100);
+    label.setFont(new Font("Serif", Font.BOLD,30)); 
     panel.add(label);
 
     JButton button = new JButton("Start");
-    button.setBounds(200,250, 100,25);
+    button.setBounds(230,250, 150,50);
     button.addActionListener(this);
     panel.add(button);
     

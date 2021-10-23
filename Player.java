@@ -11,16 +11,19 @@ public class Player{
 
   public void correct(int value){
      score += value;
-     //return score;
+     
    }
 
-  public void resetScore(){
-    score=0;
-  }
+  
 
    public int getScore(){
      return score;
    }
+
+  public void addScoreText(){
+    correctAnswers.add("Questions that are correct: ");
+  }
+
    public void correctAnswers(String answer) {
     correctAnswers.add(answer);
    }
@@ -38,5 +41,9 @@ public class Player{
    public void clear_array(){
      correctAnswers.clear();
    }
+
+   public void resetScore(){
+    score=0;
+  }
    
 }
