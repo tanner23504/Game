@@ -1,3 +1,4 @@
+// import java swing components, action listeners, io, and fonts //
 import javax.swing.JFrame; 
 import javax.swing.JLabel; 
 import java.awt.*;
@@ -7,12 +8,17 @@ import java.awt.event.*;
 import java.io.*;
 import java.awt.font.*;
 import java.awt.Font;
+
+//MAIN GAME SCREEN CLASS//
 public class main_game_screen extends JFrame implements ActionListener {
-  public int score = 0;
   
-  CardLayout layout = new CardLayout();
-  Container base = getContentPane();
-  JPanel panel;
+  
+  CardLayout layout = new CardLayout(); //create a CARD LAYOUT
+  Container base = getContentPane(); //create a container for multiple layers of GUI
+  
+  JPanel panel; //define panel
+  
+  // text fields are defined for entire class //
   JTextField userText;
   JTextField userText2;
   JTextField userText3;
@@ -25,9 +31,15 @@ public class main_game_screen extends JFrame implements ActionListener {
   JTextField userText10;
   JTextField userText11;
   JTextField userText12;
+  
+  //labels are defined for entire class //
   JLabel label_1;
   JLabel label_2;
+
+  // creating new array and initailizing score
   public static Player player = new Player();
+
+  //buttons are defined for entire class//
   JButton button_1;
   JButton button_2;
   JButton button_3;
@@ -47,10 +59,15 @@ public class main_game_screen extends JFrame implements ActionListener {
   JLabel label_score;
   JLabel label_score1;
   
+  // MAIN GAME SCREEN METHOD //
   public main_game_screen() {
 
-    base.setLayout(layout);
-    JPanel landing = landing();
+    
+    base.setLayout(layout); //creating base
+    
+    JPanel landing = landing(); //landing GUI card
+    
+    // question GUI cards
     JPanel question1 = question1();
     JPanel question2 = question2();
     JPanel question3 = question3();
@@ -63,8 +80,14 @@ public class main_game_screen extends JFrame implements ActionListener {
     JPanel question10 = question10();
     JPanel question11 = question11();
     JPanel question12 = question12();
+    
+    //endgame GUI card
     JPanel endGame = endGame();
+
+    //incorrect GUI card
     JPanel incorrect = incorrect();
+
+    //cards are assigned strings on how to call them
     base.add(question1, "question1");
     base.add(question2, "question2");
     base.add(question3, "question3");
@@ -79,32 +102,34 @@ public class main_game_screen extends JFrame implements ActionListener {
     base.add(question12, "question12");
     base.add(endGame, "endGame");
     base.add(incorrect, "incorrect");
+    base.add(landing, "landing");
+    layout.show(base, "landing"); 
+    //correct GUI card
     JPanel correct = correct();
     base.add(correct, "correct");
 
-    base.add(landing, "landing");
-    layout.show(base, "landing"); 
+
+    
     
   }
 
   
-
+  // Card LANDING METHOD (MAIN GAME SCREEN UI)//
   public JPanel landing() {
-    panel = new JPanel();
+    
+    panel = new JPanel(); //create new panel
     panel.setLayout(null);
     add(panel);
 
-    JLabel label = new JLabel("Choose a question from the four categories");
+    JLabel label = new JLabel("Choose a question from the four categories"); //new label
     label.setBounds(180, 10, 400, 25);
     panel.add(label);
     
     
-///////////////////////////
-   /* label_score = new JLabel(String.valueOf(player.getScore()));
-    label_score.setBounds(200, 250, 400, 25);
-    panel.add(label_score); */
-
-    category_1 = new JButton(new ImageIcon("Jeopardy Project Images/Sports.png"));
+    /////////////////////////////////////////////////////////////////
+    // BUTTONS FOR MAIN GAME SCREEN ASSIGNED TO CUSTOM MADE IMAGES //
+    ////////////////////////////////////////////////////////////////
+    category_1 = new JButton(new ImageIcon("Jeopardy Project Images/Sports.png")); 
     category_1.setBounds(10, 50, 150, 70);
     panel.add(category_1);
 
@@ -203,22 +228,23 @@ public class main_game_screen extends JFrame implements ActionListener {
 
     return panel;
   }
-
+  // Card QUESTION 1 METHOD //
   public JPanel question1() {
-    panel = new JPanel();
+    
+    panel = new JPanel(); //create panel
     panel.setLayout(null);
     add(panel);
 
-    JLabel label = new JLabel("What is the most popular sport in the world?");
+    JLabel label = new JLabel("What is the most popular sport in the world?"); //display question
     label.setBounds(80, 80, 500, 25);
     label.setFont(new Font("", Font.BOLD, 18)); 
     panel.add(label);
 
-    userText = new JTextField(20);
+    userText = new JTextField(20); //user input here
     userText.setBounds(230, 200, 150, 25);
     panel.add(userText);
 
-    JButton button_1 = new JButton("Submit");
+    JButton button_1 = new JButton("Submit"); //submit button
     button_1.setBounds(230, 250, 150, 50);
     button_1.setActionCommand("Submit");
     button_1.addActionListener(this);
@@ -226,25 +252,25 @@ public class main_game_screen extends JFrame implements ActionListener {
 
     return panel;
   }
-
+  // Card QUESTION 2 METHOD //
   public JPanel question2() {
-    panel = new JPanel();
+    
+    panel = new JPanel(); //create panel
     panel.setLayout(null);
     add(panel);
     
     
-    JLabel label = new JLabel("<html>What is the most popular free to play game?<html>");
+    JLabel label = new JLabel("<html>What is the most popular free to play game?<html>"); //display question
     label.setBounds(100, 80, 500, 25);
     label.setFont(new Font("", Font.BOLD, 18)); 
-    
     label.setVerticalAlignment(SwingConstants.CENTER);
     panel.add(label);
 
-    userText2 = new JTextField(20);
+    userText2 = new JTextField(20); //user input here
     userText2.setBounds(230, 200, 150, 25);
     panel.add(userText2);
 
-    JButton button_2 = new JButton("Submit");
+    JButton button_2 = new JButton("Submit"); //submit button
     button_2.setBounds(230, 250, 150, 50);
     button_2.setActionCommand("Submit_2");
     button_2.addActionListener(this);
@@ -252,22 +278,24 @@ public class main_game_screen extends JFrame implements ActionListener {
 
     return panel;
   }
-
+  
+  // Card QUESTION 3 METHOD //
   public JPanel question3() {
-    panel = new JPanel();
+    
+    panel = new JPanel(); //create panel
     panel.setLayout(null);
     add(panel);
 
-    JLabel label = new JLabel("What is the opposite of the term 'output'? ");
+    JLabel label = new JLabel("What is the opposite of the term 'output'? "); //display question
     label.setBounds(100, 80, 500, 25);
     label.setFont(new Font("", Font.BOLD, 18)); 
     panel.add(label);
-
-    userText3 = new JTextField(20);
+ 
+    userText3 = new JTextField(20); //user input here
     userText3.setBounds(230, 200, 150, 25);
     panel.add(userText3);
 
-    JButton button_3 = new JButton("Submit");
+    JButton button_3 = new JButton("Submit"); //submit button
     button_3.setBounds(230, 250, 150, 50);
     button_3.setActionCommand("Submit_3");
     button_3.addActionListener(this);
@@ -276,21 +304,23 @@ public class main_game_screen extends JFrame implements ActionListener {
     return panel;
   }
 
+   // Card QUESTION 4 METHOD //
   public JPanel question4() {
-    panel = new JPanel();
+    
+    panel = new JPanel(); //create panel
     panel.setLayout(null);
     add(panel);
 
-    JLabel label = new JLabel("What is 1+1?");
+    JLabel label = new JLabel("What is 1+1?"); //display question
     label.setBounds(230, 80, 500, 25);
     label.setFont(new Font("", Font.BOLD, 18)); 
     panel.add(label);
 
-    userText4 = new JTextField(20);
+    userText4 = new JTextField(20);  //user input here
     userText4.setBounds(230, 200, 150, 25);
     panel.add(userText4);
 
-    JButton button_4 = new JButton("Submit");
+    JButton button_4 = new JButton("Submit"); //submit button
     button_4.setBounds(230, 250, 150, 50);
     button_4.setActionCommand("Submit_4");
     button_4.addActionListener(this);
@@ -299,21 +329,23 @@ public class main_game_screen extends JFrame implements ActionListener {
     return panel;
   }
 
+   // Card QUESTION 5 METHOD //
   public JPanel question5() {
-    panel = new JPanel();
+    
+    panel = new JPanel(); //create panel
     panel.setLayout(null);
     add(panel);
 
-    JLabel label = new JLabel("Who won the Stanley Cup in 2021");
+    JLabel label = new JLabel("Who won the Stanley Cup in 2021"); //display question
     label.setBounds(150, 80, 500, 25);
     label.setFont(new Font("", Font.BOLD, 18)); 
     panel.add(label);
 
-    userText5 = new JTextField(20);
+    userText5 = new JTextField(20); //user input here
     userText5.setBounds(230, 200, 150, 25);
     panel.add(userText5);
 
-    JButton button_5 = new JButton("Submit");
+    JButton button_5 = new JButton("Submit"); //submit button
     button_5.setBounds(230, 250, 150, 50);
     button_5.setActionCommand("Submit_5");
     button_5.addActionListener(this);
@@ -322,21 +354,23 @@ public class main_game_screen extends JFrame implements ActionListener {
     return panel;
   }
 
+  // Card QUESTION 6 METHOD //
   public JPanel question6() {
-    panel = new JPanel();
+    
+    panel = new JPanel(); //create panel
     panel.setLayout(null);
     add(panel);
 
-    JLabel label = new JLabel("What was the first main stream Nintendo console called?");
+    JLabel label = new JLabel("What was the first main stream Nintendo console called?"); //display question
     label.setBounds(35, 80, 600, 25);
     label.setFont(new Font("", Font.BOLD, 18)); 
     panel.add(label);
 
-    userText6 = new JTextField(20);
+    userText6 = new JTextField(20); //user input here
     userText6.setBounds(230, 200, 150, 25);
     panel.add(userText6);
 
-    JButton button_6 = new JButton("Submit");
+    JButton button_6 = new JButton("Submit"); //submit button
     button_6.setBounds(230, 250, 150, 50);
     button_6.setActionCommand("Submit_6");
     button_6.addActionListener(this);
@@ -345,21 +379,23 @@ public class main_game_screen extends JFrame implements ActionListener {
     return panel;
   }
 
+  // Card QUESTION 7 METHOD //
   public JPanel question7() {
-    panel = new JPanel();
+    
+    panel = new JPanel(); //create panel
     panel.setLayout(null);
     add(panel);
 
-    JLabel label = new JLabel("What does the term 'GPU' mean?");
+    JLabel label = new JLabel("What does the term 'GPU' mean?"); //display question
     label.setBounds(150, 80, 500, 25);
     label.setFont(new Font("", Font.BOLD, 18)); 
     panel.add(label);
 
-    userText7 = new JTextField(20);
+    userText7 = new JTextField(20); //user input here
     userText7.setBounds(230, 200, 150, 25);
     panel.add(userText7);
 
-    JButton button_7 = new JButton("Submit");
+    JButton button_7 = new JButton("Submit"); //submit button
     button_7.setBounds(230, 250, 150, 50);
     button_7.setActionCommand("Submit_7");
     button_7.addActionListener(this);
@@ -367,22 +403,24 @@ public class main_game_screen extends JFrame implements ActionListener {
 
     return panel;
   }
-
+  
+  // Card QUESTION 7 METHOD //
   public JPanel question8() {
-    panel = new JPanel();
+    
+    panel = new JPanel(); //create panel
     panel.setLayout(null);
     add(panel);
 
-    JLabel label = new JLabel("What is the fastest land animal in the world?");
+    JLabel label = new JLabel("What is the fastest land animal in the world?"); //display question
     label.setBounds(100, 80, 500, 25);
     label.setFont(new Font("", Font.BOLD, 18)); 
     panel.add(label);
 
-    userText8 = new JTextField(20);
+    userText8 = new JTextField(20); //user input here
     userText8.setBounds(240, 200, 150, 25);
     panel.add(userText8);
 
-    JButton button_8 = new JButton("Submit");
+    JButton button_8 = new JButton("Submit"); //submit button
     button_8.setBounds(240, 250, 150, 50);
     button_8.setActionCommand("Submit_8");
     button_8.addActionListener(this);
@@ -391,21 +429,23 @@ public class main_game_screen extends JFrame implements ActionListener {
     return panel;
   }
 
+  // Card QUESTION 9 METHOD //
   public JPanel question9() {
-    panel = new JPanel();
+    
+    panel = new JPanel(); //create panel
     panel.setLayout(null);
     add(panel);
 
-    JLabel label = new JLabel("What country eliminated Brazil in the 2014 Fifa World Cup?");
+    JLabel label = new JLabel("What country eliminated Brazil in the 2014 Fifa World Cup?"); //display question
     label.setBounds(35, 80, 700, 25);
     label.setFont(new Font("", Font.BOLD, 18)); 
     panel.add(label);
 
-    userText9 = new JTextField(20);
+    userText9 = new JTextField(20); //user input here
     userText9.setBounds(230, 200, 150, 25);
     panel.add(userText9);
 
-    JButton button_9 = new JButton("Submit");
+    JButton button_9 = new JButton("Submit"); //submit button
     button_9.setBounds(230, 250, 150, 50);
     button_9.setActionCommand("Submit_9");
     button_9.addActionListener(this);
@@ -414,21 +454,23 @@ public class main_game_screen extends JFrame implements ActionListener {
     return panel;
   }
 
+   // Card QUESTION 10 METHOD //
   public JPanel question10() {
-    panel = new JPanel();
+    
+    panel = new JPanel(); //create panel
     panel.setLayout(null);
     add(panel);
 
-    JLabel label = new JLabel("<html>What competitive video game had a <br> tournament hosted in Iceland and Berlin?<html>");
+    JLabel label = new JLabel("<html>What competitive video game had a <br> tournament hosted in Iceland and Berlin?<html>"); //display question
     label.setBounds(110, 80, 500, 50);
     label.setFont(new Font("", Font.BOLD, 18)); 
     panel.add(label);
 
-    userText10 = new JTextField(20);
+    userText10 = new JTextField(20); //user input here
     userText10.setBounds(230, 200, 150, 25);
     panel.add(userText10);
 
-    JButton button_10 = new JButton("Submit");
+    JButton button_10 = new JButton("Submit"); //submit button
     button_10.setBounds(230, 250, 150, 50);
     button_10.setActionCommand("Submit_10");
     button_10.addActionListener(this);
@@ -436,22 +478,23 @@ public class main_game_screen extends JFrame implements ActionListener {
 
     return panel;
   }
-
+  // Card QUESTION 11 METHOD //
   public JPanel question11() {
-    panel = new JPanel();
+    
+    panel = new JPanel(); //create panel
     panel.setLayout(null);
     add(panel);
 
-    JLabel label = new JLabel("What are the different types of loops in java?");
+    JLabel label = new JLabel("What are the different types of loops in java?");  //display question
     label.setBounds(110, 80, 500, 25);
     label.setFont(new Font("", Font.BOLD, 18)); 
     panel.add(label);
 
-    userText11 = new JTextField(20);
+    userText11 = new JTextField(20); //user input here
     userText11.setBounds(230, 200, 150, 25);
     panel.add(userText11);
 
-    JButton button_11 = new JButton("Submit");
+    JButton button_11 = new JButton("Submit"); //submit button
     button_11.setBounds(230, 250, 150, 50);
     button_11.setActionCommand("Submit_11");
     button_11.addActionListener(this);
@@ -459,26 +502,23 @@ public class main_game_screen extends JFrame implements ActionListener {
 
     return panel;
   }
-
+  // Card QUESTION 12 METHOD //
   public JPanel question12() {
-    panel = new JPanel();
+    
+    panel = new JPanel(); //create panel
     panel.setLayout(null);
     add(panel);
 
-    JLabel label = new JLabel("<html>What computer course in University does not <br> require you to take any sciences in highschool?<html>");
+    JLabel label = new JLabel("<html>What computer course in University does not <br> require you to take any sciences in highschool?<html>"); //display question
     label.setBounds(110, 80, 500, 50);
     label.setFont(new Font("", Font.BOLD, 18)); 
     panel.add(label);
 
-
-
-    
-
-    userText12 = new JTextField(20);
+    userText12 = new JTextField(20); //user input here
     userText12.setBounds(230, 200, 150, 25);
     panel.add(userText12);
 
-    JButton button_12 = new JButton("Submit");
+    JButton button_12 = new JButton("Submit"); //submit button
     button_12.setBounds(230, 250, 150, 50);
     button_12.setActionCommand("Submit_12");
     button_12.addActionListener(this);
@@ -487,64 +527,60 @@ public class main_game_screen extends JFrame implements ActionListener {
     return panel;
   }
 
+  // Card END GAME METHOD (When game is over) //
   public JPanel endGame() {
     
-    panel = new JPanel();
+    panel = new JPanel(); //create panel
     panel.setLayout(null);
     add(panel);
     
-    JLabel label = new JLabel("Game Over!");
+    JLabel label = new JLabel("Game Over!"); //display message
     label.setBounds(275, 35, 225, 25);
     label.setFont(new Font("Serif", Font.BOLD, 18)); 
     panel.add(label);
 
-    label_1 = new JLabel(player.getValues());
+    label_1 = new JLabel(player.getValues()); //display which answers user entered correctly
     label_1.setBounds(390, 200, 500, 25);
     panel.add(label_1);
     player.getcorrectAnswerslength();
-    ////////////////////////////////////////////////////////
-    label_2 = new JLabel(String.valueOf(player.score));
+    
+    label_2 = new JLabel(String.valueOf(player.score)); //display the user score
     System.out.println(player.score);
     label_2.setBounds(340,272, 225, 25);
     label_2.setFont(new Font("Serif", Font.BOLD, 18)); ;
     panel.add(label_2);
     
-    
-    
-    System.out.println(player.getValues());
-    
-    JButton endGame = new JButton("Main Screen");
+    JButton endGame = new JButton("Main Screen"); //main screen button
     endGame.setBounds(265, 380, 150, 40);
     endGame.setActionCommand("endGame_1");
     endGame.addActionListener(this);
     panel.add(endGame);
 
-   
-
     return panel;
   }
 
+  // Card CORRECT METHOD (When answer is correct) //
   public JPanel correct() {
-    //player.addScoreText();
-    JPanel panel = new JPanel();
+    
+    JPanel panel = new JPanel(); //create panel
     panel.setLayout(null);
     add(panel);
     player.correct(100);
     
    
-    label_score = new JLabel(String.valueOf(player.getScore()));
+    label_score = new JLabel(String.valueOf(player.getScore())); //display score
     panel.setBackground(Color.green);
     label_score.setBounds(490, 150, 150, 25);
     label_score.setFont(new Font("Serif", Font.BOLD,18)); 
     panel.add(label_score);
 
-    label_score1 = new JLabel("Correct Answer! Your score is now: ");
+    label_score1 = new JLabel("Correct Answer! Your score is now: "); //display correct answer message
     panel.setBackground(Color.green);
     label_score1.setBounds(125, 150, 500, 25);
     label_score1.setFont(new Font("Serif", Font.BOLD,18)); 
     panel.add(label_score1);
 
-    JButton button_1 = new JButton("Continue");
+    JButton button_1 = new JButton("Continue"); //continue button
     button_1.setBounds(240, 250, 150, 30);
     button_1.setActionCommand("continue game");
     button_1.addActionListener(this);
@@ -553,115 +589,125 @@ public class main_game_screen extends JFrame implements ActionListener {
     return panel;
   }
 
+  // Card INCORRECT METHOD (When answer is incorrect) //
   public JPanel incorrect() {
-    panel = new JPanel();
+   
+    panel = new JPanel(); //create panel
     panel.setLayout(null);
     add(panel);
     panel.setBackground(Color.red);
     
-     
-
-    
-    JLabel label = new JLabel("You lost the game");
+    JLabel label = new JLabel("You lost the game"); //display losing message
     label.setBounds(225, 200, 225, 25);
     label.setFont(new Font("", Font.BOLD, 18)); 
     panel.add(label);
 
-    JLabel label2 = new JLabel("Game Over!");
+    JLabel label2 = new JLabel("Game Over!"); //display losing message
     label2.setBounds(220, 150, 225, 25);
     label2.setFont(new Font("", Font.BOLD, 30)); 
     panel.add(label2);
 
-    
-    ////////////////////////////////////////////////////////
-   
-
-    JButton button_1 = new JButton("Main Screen");
+    JButton button_1 = new JButton("Main Screen"); //main screen button
     button_1.setBounds(245, 250, 150, 30);
     button_1.setActionCommand("game reset");
     button_1.addActionListener(this);
     panel.add(button_1);
 
-    
-
     return panel;
   }
 
   @Override
+  //ACTION PERFORMED METHOD called if a button is clicked
   public void actionPerformed(ActionEvent e) {
+    
     switch (e.getActionCommand()) {
-    case "Question 1":
+    
+    //if question 1 clicked, button will disappear and question will be displayed
+    case "Question 1": 
       layout.show(base, "question1");
       button_1.setVisible(false);
       button_1.invalidate();
       break;
-
+    
+    //if question 2 clicked, button will disappear and question will be displayed
     case "Question 2":
       layout.show(base, "question2");
       button_2.setVisible(false);
       button_2.invalidate();
       break;
 
+    //if question 3 clicked, button will disappear and question will be displayed
     case "Question 3":
       layout.show(base, "question3");
       button_3.setVisible(false);
       button_3.invalidate();
       break;
 
+    //if question 4 clicked, button will disappear and question will be displayed
     case "Question 4":
       layout.show(base, "question4");
       button_4.setVisible(false);
       button_4.invalidate();
       break;
 
+    //if question 5 clicked, button will disappear and question will be displayed
     case "Question 5":
       layout.show(base, "question5");
       button_5.setVisible(false);
       button_5.invalidate();
       break;
 
+    //if question 6 clicked, button will disappear and question will be displayed
     case "Question 6":
       layout.show(base, "question6");
       button_6.setVisible(false);
       button_6.invalidate();
       break;
 
+    //if question 7 clicked, button will disappear and question will be displayed
     case "Question 7":
       layout.show(base, "question7");
       button_7.setVisible(false);
       button_7.invalidate();
       break;
 
+    //if question 8 clicked, button will disappear and question will be displayed
     case "Question 8":
       layout.show(base, "question8");
       button_8.setVisible(false);
       button_8.invalidate();
       break;
 
+    //if question 9 clicked, button will disappear and question will be displayed
     case "Question 9":
       layout.show(base, "question9");
       button_9.setVisible(false);
       button_9.invalidate();
       break;
 
+    //if question 10 clicked, button will disappear and question will be displayed
     case "Question 10":
       layout.show(base, "question10");
       button_10.setVisible(false);
       button_10.invalidate();
       break;
 
+    //if question 11 clicked, button will disappear and question will be displayed
     case "Question 11":
       layout.show(base, "question11");
       button_11.setVisible(false);
       button_11.invalidate();
       break;
 
+    //if question 12 clicked, button will disappear and question will be displayed
     case "Question 12":
       layout.show(base, "question12");
       button_12.setVisible(false);
       button_12.invalidate();
       break;
 
+    /*if submit for question 1 is clicked, question will be checked if correct or not
+      if incorrect, lose game. if correct, add 100 points and let user continue game*/
     case "Submit":
       
       if (userText.getText().toLowerCase().equals("soccer")) {
@@ -679,6 +725,8 @@ public class main_game_screen extends JFrame implements ActionListener {
 
       break;
 
+    /*if submit for question 2 is clicked, question will be checked if correct or not
+      if incorrect, lose game. if correct, add 100 points and let user continue game*/
     case "Submit_2":
 
       if (userText2.getText().toLowerCase().equals("fortnite")) {
@@ -693,6 +741,8 @@ public class main_game_screen extends JFrame implements ActionListener {
 
       break;
 
+    /*if submit for question 3 is clicked, question will be checked if correct or not
+      if incorrect, lose game. if correct, add 100 points and let user continue game*/
     case "Submit_3":
 
       if (userText3.getText().toLowerCase().equals("input")) {
@@ -707,6 +757,8 @@ public class main_game_screen extends JFrame implements ActionListener {
 
       break;
 
+    /*if submit for question 4 is clicked, question will be checked if correct or not
+      if incorrect, lose game. if correct, add 100 points and let user continue game*/
     case "Submit_4":
 
       if (userText4.getText().toLowerCase().equals("2")) {
@@ -722,6 +774,8 @@ public class main_game_screen extends JFrame implements ActionListener {
 
       break;
 
+    /*if submit for question 5 is clicked, question will be checked if correct or not
+      if incorrect, lose game. if correct, add 100 points and let user continue game*/
     case "Submit_5":
 
       if (userText5.getText().toLowerCase().equals("tampa bay lightning")) {
@@ -732,11 +786,12 @@ public class main_game_screen extends JFrame implements ActionListener {
 
       } else {
         layout.show(base, "incorrect");
-
       }
 
       break;
 
+    /*if submit for question 6 is clicked, question will be checked if correct or not
+      if incorrect, lose game. if correct, add 100 points and let user continue game*/
     case "Submit_6":
 
       if (userText6.getText().toLowerCase().equals("nintendo entertainment system")) {
@@ -747,11 +802,12 @@ public class main_game_screen extends JFrame implements ActionListener {
 
       } else {
         layout.show(base, "incorrect");
-
       }
 
       break;
 
+    /*if submit for question 7 is clicked, question will be checked if correct or not
+      if incorrect, lose game. if correct, add 100 points and let user continue game*/
     case "Submit_7":
 
       if (userText7.getText().toLowerCase().equals("graphics processing unit")) {
@@ -762,12 +818,12 @@ public class main_game_screen extends JFrame implements ActionListener {
 
       } else {
         layout.show(base, "incorrect");
-
       }
 
       break;
 
-
+    /*if submit for question 8 is clicked, question will be checked if correct or not
+      if incorrect, lose game. if correct, add 100 points and let user continue game*/
     case "Submit_8":
 
       if (userText8.getText().toLowerCase().equals("cheetah")) {
@@ -783,6 +839,8 @@ public class main_game_screen extends JFrame implements ActionListener {
 
       break;
 
+    /*if submit for question 9 is clicked, question will be checked if correct or not
+      if incorrect, lose game. if correct, add 100 points and let user continue game*/
     case "Submit_9":
 
       if (userText9.getText().toLowerCase().equals("germany")) {
@@ -798,6 +856,8 @@ public class main_game_screen extends JFrame implements ActionListener {
 
       break;
 
+    /*if submit for question 10 is clicked, question will be checked if correct or not
+      if incorrect, lose game. if correct, add 100 points and let user continue game*/
     case "Submit_10":
 
       if (userText10.getText().toLowerCase().equals("valorant")) {
@@ -813,6 +873,8 @@ public class main_game_screen extends JFrame implements ActionListener {
 
       break;
 
+    /*if submit for question 11 is clicked, question will be checked if correct or not
+      if incorrect, lose game. if correct, add 100 points and let user continue game*/
     case "Submit_11":
 
       if (userText11.getText().toLowerCase().equals("for loop, while loop, do-while loop")) {
@@ -843,11 +905,12 @@ public class main_game_screen extends JFrame implements ActionListener {
 
        else {
         layout.show(base, "incorrect");
-
       }
 
       break;
 
+    /*if submit for question 12 is clicked, question will be checked if correct or not
+      if incorrect, lose game. if correct, add 100 points and let user continue game*/
     case "Submit_12":
 
       if (userText12.getText().toLowerCase().equals("computer science")) {
@@ -858,68 +921,62 @@ public class main_game_screen extends JFrame implements ActionListener {
 
       } else {
         layout.show(base, "incorrect");
-
       }
 
       break;
 
+    //if user clicks 'main screen' //
     case "endGame_1":
 
-      dispose();
+      dispose(); //current GUI is disposed
       
-      
-      GUI myGui1 = new GUI();
+      GUI myGui1 = new GUI(); //new GUI created
       myGui1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-      Player_Stats.writeSomething();
+      Player_Stats.writeSomething(); //stats will be recorded in txt file
       myGui1.setSize(775, 500);
       myGui1.setVisible(true);
-       player.resetScore();
-       player.clear_array();
+       player.resetScore(); //score is reset
+       player.clear_array(); //array is cleared
 
-       
-
-      System.out.println(player.getValues());
-      
       break;
 
+    //if user clicks 'end game'//
     case "endGame":
-      JPanel endGame = endGame();
+      JPanel endGame = endGame(); //call for array values and score values to be displayed
       base.add(endGame,"endGame");
       
       
-      JLabel label = new JLabel("Questions that were answered correctly: ");
+      JLabel label = new JLabel("Questions that were answered correctly: "); //display message
       label.setBounds(60, 200, 500, 25);
       label.setFont(new Font("", Font.BOLD, 14)); 
       panel.add(label);
       
       
-      JLabel labelScore = new JLabel("Score: ");
+      JLabel labelScore = new JLabel("Score: "); //display message
       labelScore.setBounds(280, 270, 150, 30);
       labelScore.setFont(new Font("", Font.BOLD, 14)); 
       panel.add(labelScore);
-      
 
       layout.show(base, "endGame");
-      
-      
+
       break;
 
+    //if user gets question wrong (loses)//
     case "game reset":
-      dispose();
-      player.resetArray();
-      player.resetScore();
-      GUI myGui = new GUI();
+      dispose(); //GUI is disposed
+      player.resetArray(); //array is reset
+      player.resetScore(); //score is reset
+      GUI myGui = new GUI(); //new GUI is created
       myGui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
       myGui.setSize(775, 500);
       myGui.setVisible(true);
 
-
       break;
 
+    // if user clicks 'continue game' //
     case "continue game":
       
-      layout.show(base, "landing");
+      layout.show(base, "landing"); // sends user back to main screen
       
       break;
     
